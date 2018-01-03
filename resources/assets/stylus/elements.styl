@@ -1,0 +1,819 @@
+.logo__name
+  font 54px hb
+  line-height 30px
+  text-transform uppercase
+  padding-top 30px
+
+.logo__text
+  font 14px sr
+  line-height 18px
+  text-transform uppercase
+  letter-spacing 2.7pt
+
+.header__menu
+  padding 0
+  ul
+    li
+      display inline-block
+      margin 0 10px
+      transition tr
+    li a
+      transition tr
+    li:hover
+      border-bottom 5px solid sred
+      transition tr
+    li:hover a
+      color sred
+      transition tr
+
+.header__menu_links
+  color white
+  line-height 85px
+  display inline-block
+
+.header__city
+  font 13px sb
+  height 90px
+  padding-top 34px
+  span
+    color white
+
+.header__city__button
+  display inline-block
+  button
+    background transparent
+    border none
+    color sred
+    cursor pointer
+  li
+    cursor pointer
+
+a.footer__site
+  font 44px fsb
+
+.footer__site
+  display inline-block
+  margin-top 30px
+
+.footer__social
+  text-align right
+
+.footer__links
+  padding-right 60px
+  
+.footer__soc__links
+  display inline-block
+  width 54px
+  height 57px
+
+.footer__soc__links.vk
+  background url("../img/icons/social.png") no-repeat 0 0
+
+.footer__soc__links.twit
+  background url("../img/icons/social.png") no-repeat -60px 0
+
+.footer__soc__links.face
+  background url("../img/icons/social.png") no-repeat -120px 0
+
+.footer__soc__links.gp
+  background url("../img/icons/social.png") no-repeat -180px 0
+
+.card__card-title-top,
+.card__card-title-top h1
+  font 18px fsb
+  color sred
+  display inline-block
+  width 100%
+
+.card__card-title-text
+  position relative
+  top -5px
+  padding-right 80px
+
+.card__card-title-icon
+  display inline-block
+  width 28px
+  height 23px
+  background url("../img/icons/search-icon.png") no-repeat
+  cursor pointer
+
+.search__label
+  font 11px fsl
+  color tgrey
+  padding-left 25px
+  letter-spacing 1pt
+  transition tr
+
+.search__label:hover
+  color black
+  cursor pointer
+  transition-property border-color, color
+  transition-duration .3s
+
+.search__label:before
+  transition-property border-color, color
+  transition-duration .3s
+
+.search__label:hover:before
+  border-color black
+  transition-property border-color, color
+  transition-duration .3s
+
+.search-form__city-error
+  color sred
+  position absolute
+  top 0
+  display none
+
+.card__card-title
+  font 14px fsb
+  color black
+
+.search__block
+  display inline-block
+  position relative
+  margin-bottom 30px
+  width 100%
+
+.search_main .search__courier,
+.search_main .search__repair
+  margin-bottom 0
+
+.search_main .search__diagnistic
+  margin-bottom 11px
+
+.search__input-block
+  position relative
+  text-align left
+
+.search_right-col
+  float right
+
+.search__check:not(checked)
+  position absolute
+  opacity 0
+
+.search__check:not(checked) + label:before
+  content ''
+  position absolute
+  top 5px
+  left 0
+  width 17px
+  height 17px
+  border bgrey
+
+.search__check:not(checked) + label:after
+  content ''
+  position absolute
+  top 0
+  left 0
+  width 17px
+  height 71px
+
+.search__check:checked + label:before
+  background url("../img/icons/active-arrow.png") no-repeat center
+  border-color black
+
+.search__check:checked + label
+  color black
+
+.search__sorting
+  padding-top 35px
+  position fixed
+  z-index 10
+  background-color white
+
+.s__item
+  position relative
+  margin-bottom 40px
+  padding 30px
+
+.s__item__name__title
+  font 18px fsm
+  color sred
+  padding-right 10px
+
+.s__item__name__type
+  font 11px fsl
+  border bgrey
+  color #a69495
+  padding 1px 10px
+  position relative
+  top -3px
+
+.s__item__address_at
+.s__item__address_wt
+  float left
+  font 12px fsl
+  display inline-block
+
+.s__item__address_at
+  width 200px
+  padding-left 20px
+  padding-right 10px
+  background url("../img/icons/sl-icons.png") no-repeat 0 -37px
+  line-height 20px
+
+.s__item__address_wt
+  background url("../img/icons/sl-icons.png") no-repeat -208px -37px
+  padding-left 20px
+
+.s__item__address
+  margin-bottom 20px
+
+.s__item__name
+  margin-bottom 20px
+
+.s__item__tel_butt
+  float left
+  font 12px fsl
+  color white
+  display inline-block
+  width 145px
+  height 35px
+  background-color sred
+  border none
+  margin-right 15px
+  cursor pointer
+
+.s__item__tel_text
+  float left
+  font 13px sl
+  color #b3b3b3
+  display inline-block
+  width 145px
+  line-height 15px
+
+.s__item__info
+  padding-right 0
+  text-align right
+  padding-left 0
+
+.s__item__rating
+  font 19px sr
+  letter-spacing 2pt
+
+.s__item__rating_icon
+  background url("../img/icons/sl-icons.png") no-repeat -636px 2px
+  display inline-block
+  width 20px
+  height 20px
+
+.s__item__rew
+  font 15px fsb
+  color sred
+  text-decoration underline
+  margin-top 20px
+
+.s__item__more
+  position absolute
+  bottom 35px
+  right 30px
+  a
+    font 12px sr
+    border bgrey
+    color #b7b7b7
+    padding 6px 26px
+    transition tr
+  a:hover
+    transition tr
+    color black
+    border-color black
+
+.s__item__img
+  position absolute
+  top 0
+  bottom 0
+  left 0
+  right 0
+  background-size 100%
+  background-repeat no-repeat
+  background-position center
+
+.s__item__img__child
+  width 70%
+  margin-left 35px
+
+.search__sort-butt
+  position relative
+  display inline-block
+  margin-right 5px
+
+.search__sorting__title
+  font 13px fsl
+  line-height 33px
+  padding-right 10px
+
+.s__item__title h1,
+.s__item__title
+  font 16px fsl
+  text-transform uppercase
+  margin-top 40px
+  margin-bottom 20px
+
+.ser__logo
+  width 140px
+  height 40px
+  background-repeat no-repeat
+  background-position center
+  background-size 100%
+  margin-bottom 20px
+
+.ser_rating
+  text-align right
+  position relative
+
+.ser_rating__val
+  background-position -630px 4px
+  padding-left 22px
+
+.ser_rating_choice
+  display none
+  position absolute
+  top 20px
+  right 0
+  span
+    padding 5px
+    cursor pointer
+
+.ser_rating:hover .ser_rating_choice
+  display block
+
+.ser_rew
+  text-align right
+
+.ser-content__info
+.ser-content__contacts
+  border bgrey
+  padding 30px 30px
+  width 49%
+  margin-top 20px
+
+.ser-content__contacts
+  float right
+  position absolute
+  top 0
+  bottom 0
+  right 0
+
+.ser-content__descr
+  font 16px fsl
+  margin-top 20px
+  letter-spacing 0.5pt
+
+.ser-content_work_days
+  padding-top 20px
+  background none
+  padding-left 0
+  span
+    display inline-block
+    height 18px
+    background url("../img/icons/cont-icons.png") no-repeat 0 -24px
+    background-size 18px
+    padding-left 40px
+    margin-bottom 5px
+
+.ser-content_address
+  margin-bottom 20px
+
+.ser-content_address span
+  padding-top 20px
+
+.ser-content__subway
+  background url("../img/icons/cont-icons.png") no-repeat 0 4px
+  font 16px fsl
+  padding-left 40px
+  margin-bottom 10px
+  .ser-content__subway__time
+    color tgrey
+
+.ser-content_tel
+  margin 20px 0
+
+.s__tels-btn
+  height auto
+  min-height 65px
+  width 265px
+  font-size 19px
+  margin-left 15px
+  margin-bottom 10px
+  padding 20px 0
+  background-color  sred
+  color white
+  text-align center
+  cursor pointer
+
+.s__item__tels
+  display none
+
+.ser-content__f
+  display inline-block
+  text-align center
+  margin-bottom 20px
+  margin-right 4px
+  img
+    max-width 135px
+    height 115px
+
+.ser__more
+  background-color white
+  padding-top 10px
+  margin-bottom 50px
+  overflow-x auto
+
+.ser-content__more-item
+  display inline-block
+  float left
+  width 254px
+  margin 0 20px
+  overflow hidden
+  position relative
+
+.ser-content__more-image
+  border 10px solid #f6f6f6
+  height 215px
+  background-repeat no-repeat
+  background-size cover
+  background-position center
+
+.ser__more__title
+  font 28px fsm
+  letter-spacing 1pt
+
+.ser-content__more-title
+  height 45px
+  font 18px fsll
+  color tgrey
+  background url("../img/icons/arr-bord.png") no-repeat
+  background-size 51px 29px
+  background-position 100% 0
+  line-height 20px
+  margin 40px 0
+  padding-right 55px
+
+.more-item__rat
+  width 78px
+  height 28px
+  position absolute
+  right 10px
+  bottom 10px
+  background-color sred
+  color white
+  text-align center
+  span
+    padding-left 0
+    padding-top 0
+    font 14px sr
+  .s__item__rating_icon
+    background-position -635px 2px
+    margin-top 4px
+  .s__item__rating
+    margin-top 4px
+    display inline-block
+    vertical-align top
+
+.more-item__icon-block
+  display inline-block
+  .s__item__rating
+    position relative
+
+.ser__price
+  margin-top 50px
+
+.ser__price__table
+  background-color #f1f4f9
+  padding 0 40px
+  padding-bottom 30px
+  margin-bottom 60px
+  margin-top 37px
+
+.ser__price__table
+  table
+    width 100%
+    position relative
+    font 18px fsl
+    td
+      line-height 46px
+      text-overflow ellipsis
+    th
+      line-height 83px
+      text-transform uppercase
+      font-weight 300
+    .ac__cell
+      padding-left 30px
+      cursor pointer
+    thead:after
+      display block
+      content ''
+      border-bottom 2px white solid
+      width 120%
+
+.ser__price__table tr:hover
+  .ser__price__table_hover
+    background-color white
+    cursor pointer
+  .ser__price__table_after:after
+    background-color white
+
+.ser__price__table tr:hover
+  .ac__cell
+    color #f88589
+
+.ser__price__comp-title
+  padding-top 45px
+  padding-bottom 26px
+  width 300px
+  border-bottom 4px #fff solid
+  span
+    position absolute
+    top 45px
+    right 122px
+    display inline-block
+    width 178px
+    height 60px
+    background-color #b3b3b3
+    line-height 16px
+    font 12px fsm
+    text-transform uppercase
+    padding 16px 32px
+    color white
+  .ser__price__comp-title_span
+    background-color #f1f4f9
+    top 0
+    width 300px
+    right 0
+    height 45px
+
+
+.ser__price__table_title
+  padding-top 6px
+  font 19px fsr
+
+.ser__price__comp-title_red
+  position absolute
+  padding-top 35px
+  font-size 15px
+  color sred
+  padding-left 30px
+
+.ser__use-art__item
+  display inline-block
+  margin-top 30px
+
+.ser-content__use-art-image
+  height 420px
+  border none
+  padding 0
+  background-size cover
+
+.ser-content__use-art-title
+  font-size 24px
+  background-size 90px 53px
+  line-height 27px
+  height auto
+  background-position 100% 0
+  padding-right 100px
+  min-height 53px
+
+.ser__rew__cont
+  padding-right 0
+  padding-left 30px
+
+.ser__rew__text
+  font 18px fsl
+  letter-spacing 1pt
+
+.ser__rew__rat
+  font-size 16px
+  color sred
+
+.ser__rew__date
+  font 14px fsl
+  color tgrey
+  padding-top 10px
+  padding-bottom 20px
+
+.ser__rew__rat
+  background-position -635px 2px
+
+.ser__rew__user__name
+  font 15px fsm
+  color sred
+  margin-top 20px
+
+.ser__rew__title h1
+  margin 30px 0
+  font 28px fsm
+  span
+    color sred
+
+a.s__item__show-tel
+  font 14px fsm
+  text-decoration underline
+  text-decoration-style dashed
+  color sred
+
+.s__resp
+  width 190px
+  height 34px
+  min-height 34px
+  font-size 10px
+  display inline-block
+  padding 9px 0
+  text-transform uppercase
+  margin 0
+  border none
+  cursor pointer
+
+.ser-content__title h1
+  display inline-block
+  line-height 34px
+  padding 0
+  font 18px fsm
+
+.s__resp__block
+  text-align right
+  padding 0
+  color white
+
+.service-reply-form__fields
+  .service-reply-form__field
+    margin-bottom 19px
+    border bgrey
+  input
+    width 351px
+    float right
+  input[type="text"].service-reply-form__field:focus
+    border bgrey
+    border-bottom bgrey
+    box-shadow none
+    border-color sred
+    transition tr
+  textarea
+    width 355px
+    min-height 105px
+    float right
+  label
+    width 200px
+    float left
+    font 16px fsl
+    color tgrey
+    text-transform uppercase
+    span
+      color sred
+
+.service-reply-form__esti
+  label
+    font 16px fsm
+    line-height 40px
+    padding-left 5px
+    padding-right 15px
+  input
+    border bgrey
+  span
+    color tgrey
+    font 16px fsl
+    text-transform uppercase
+    padding-top 9px
+
+.rep-radios__item
+  position relative
+  display inline-block
+  padding-left 25px
+
+.service-reply-form__esti input:not(checked)
+  position absolute
+  opacity 0
+
+.service-reply-form__esti input:not(checked) + label:before
+  content ''
+  position absolute
+  top 9px
+  left 0
+  border-radius 50%
+  width 22px
+  height 22px
+  border bgrey
+  border-width 3px
+
+.service-reply-form__esti input:not(checked) + label:after
+  content ''
+  position absolute
+  top 0
+  left 0
+  border-radius 50%
+  width 22px
+  height 22px
+
+.service-reply-form__esti input:checked + label:after
+  top 16px
+  left 7px
+  border-radius 50%
+  width 8px
+  height 8px
+  background-color black
+
+.service-reply-form__esti input:checked + label:before
+  border-color black
+
+.rep-radios__items
+ text-align right
+ padding 0
+
+.service-reply-form__btns
+  text-align right
+  position absolute
+  right 0
+  bottom 22px
+
+.service-reply-form__btn
+  width 198px
+  height 52px
+  font 18px fsm
+  border none
+
+.service-reply-form__cancel-btn button
+  background-color #ebe8e8
+  color tgrey
+  margin-bottom 8px
+
+.service-reply-form__submit-btn input
+  background-color sred
+  color white
+  cursor pointer
+
+.rep-radios__item:last-child label
+  padding-right 0
+
+.ser__rew__text__subt
+  font 18px fsm
+
+.ser__rews__item__show
+  text-decoration underline
+  font 15px fsm
+  color tgrey
+  cursor pointer
+  display none
+
+.ser_sing .ser__rews__item__show
+  display block
+
+.ser_sing .js-hide-comm-text
+  display none
+
+.more-comm-btn
+  width 225px
+  height 48px
+  color white
+  border none
+  background-color sred
+  float right
+  cursor pointer
+  margin-bottom 70px
+
+.resp-count-btn
+  border none
+  background transparent
+  color sred
+  text-decoration underline
+  cursor pointer
+
+.ser__rews__item
+  margin-bottom 20px
+
+.ser-content__header
+  padding 0 15px
+
+.search-items-res
+  background-color white
+
+.search__loader
+  width 100%
+  height 100%
+  position absolute
+  background-color white
+  z-index 2000
+  opacity .5
+  top 0
+  left 0
+  bottom 0
+  display none
+
+.city__map__loader
+  position absolute
+  width 100%
+  height 100%
+  background-color white
+  z-index 2
+  opacity .8
+  top 0
+  left 0
+  bottom 0
+  line-height 558px
+  text-align center
+  font-size 25px
+  display none
+
+.add-company__form-error
+  color sred
+  font 18px fsm

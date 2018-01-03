@@ -51,3 +51,8 @@ if (token) {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+/**
+ * Libraries and plugins
+ * */
+require('../libs/lib-scripts.js');
