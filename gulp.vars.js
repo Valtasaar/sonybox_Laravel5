@@ -32,6 +32,9 @@ module.exports = {
         UglifyJsPlugin: require('uglifyjs-webpack-plugin'),
         ConcatPlugin : require('webpack-concat-plugin'),
         concat: require('gulp-concat'),
+        AssetsPlugin: require('assets-webpack-plugin'),
+        del: require('del'),
+        jsonfile: require('jsonfile')
     }
 };
 

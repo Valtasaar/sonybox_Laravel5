@@ -1,38 +1,14 @@
 'use strict';
 
-/*const path = require('path');
-//const del = require('del');
-const gulp = require('gulp');
-const gulplog = require('gulplog');
-const combine = require('stream-combiner2').obj;
-//const throttle = require('lodash.throttle');
-const debug = require('gulp-debug');
-const sourcemaps = require('gulp-sourcemaps');
-const stylus = require('gulp-stylus');
-//const browserSync = require('browser-sync').create();
-const gulpIf = require('gulp-if');
-const cssnano = require('gulp-cssnano');
-const rev = require('gulp-rev');
-//const revReplace = require('gulp-rev-replace');
-const plumber = require('gulp-plumber');
-const notify = require('gulp-notify');
-const uglify = require('gulp-uglify');
-//const resolver = require('stylus').resolver;
-const webpackStream = require('webpack-stream');
-const webpack = webpackStream.webpack;
-const named = require('vinyl-named');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const ConcatPlugin  = require('webpack-concat-plugin');
-const concat = require('gulp-concat');*/
-
 let isDevelopment = true;
 let gulpVars = require('./gulp.vars');
 let webpackOptions = require('./gulp.webpack.config');
 const $ = gulpVars.plugins;
 
-$.gulp.task('styles', function() {
+$.gulp.task('styles', () => {
+    let src = (!isDevelopment) ? [gulpVars.libsPath + 'lib-styles.styl', gulpVars.stylusPath + 'app.styl'] : gulpVars.stylusPath + 'app.styl';
 
-    return gulp.src('frontend/styles/index.styl')
+    return $.gulp.src(src)
         .pipe($.plumber({
             errorHandler: $.notify.onError(err => ({
                 title:   'Styles',
@@ -41,18 +17,50 @@ $.gulp.task('styles', function() {
         }))
         .pipe($.gulpIf(isDevelopment, $.sourcemaps.init()))
         .pipe($.stylus({
-            define: {
-                url: resolver()
-            }
+            'include css': true
         }))
         .pipe($.gulpIf(isDevelopment, $.sourcemaps.write()))
-        .pipe($.gulpIf(!isDevelopment, $.combine($.cssnano(), $.rev())))
-        .pipe($.gulp.dest('public/styles'))
-        .pipe($.gulpIf(!isDevelopment, $.combine($.rev.manifest('css.json'), $.gulp.dest('manifest'))));
+        .pipe($.gulpIf(!isDevelopment, $.combine($.concat('/app.css'), $.cssnano(), $.rev())))
+        .pipe($.gulp.dest(gulpVars.publicCssPath))
+        .on('data', function(file) {
+            if (!isDevelopment) {
+                let excludedFiles = '{app.css,lib-styles.css,' + file.basename + '}';
 
+                $.del([
+                    gulpVars.publicCssPath + '*.css',
+                    '!' + gulpVars.publicCssPath + excludedFiles
+                 ]);
+            }
+        })
+        .pipe($.gulpIf(
+            !isDevelopment,
+            $.combine(
+                $.rev.manifest('public/rev-manifest.json', {
+                    base: gulpVars.publicPath,
+                    merge: true
+                }),
+                $.gulp.dest(gulpVars.publicPath)
+            ))
+        )
 });
 
-$.gulp.task('webpack', function(callback) {
+$.gulp.task('lib-styles', () => {
+    return $.gulp.src(gulpVars.libsPath + 'lib-styles.styl')
+        .pipe($.plumber({
+            errorHandler: $.notify.onError(err => ({
+                title:   'Styles',
+                message: err.message
+            }))
+        }))
+        .pipe($.gulpIf(isDevelopment, $.sourcemaps.init()))
+        .pipe($.stylus({
+            'include css': true
+        }))
+        .pipe($.gulpIf(isDevelopment, $.sourcemaps.write()))
+        .pipe($.gulp.dest(gulpVars.publicCssPath))
+});
+
+$.gulp.task('webpack', (callback) => {
     let firstBuildReady = false;
 
     function done(err, stats) {
@@ -77,6 +85,17 @@ $.gulp.task('webpack', function(callback) {
                         unsafe:       true
                     }
                 }
+            }),
+            new $.AssetsPlugin({
+                filename: 'rev-manifest.json',
+                path:      __dirname + '/public',
+                processOutput(assets) {
+                    for (let key in assets) {
+                    assets[key + '.js'] = assets[key].js.slice(webpackOptions.output.publicPath.length);
+                    delete assets[key];
+                    }
+                    return JSON.stringify(assets);
+                }
             })
         );
     }
@@ -91,14 +110,67 @@ $.gulp.task('webpack', function(callback) {
         .pipe($.named())
         .pipe($.webpackStream(webpackOptions, null, done))
         .pipe($.gulp.dest(gulpVars.publicJsPath))
-        .on('data', function() {
+        .on('data', function(file) {
             if (firstBuildReady) {
                 callback();
+            }
+
+            if (!isDevelopment) {
+                let excludedFiles = '{app.js,' + file.basename + '}';
+
+                $.del([
+                    gulpVars.publicJsPath + '*.js',
+                    '!' + gulpVars.publicJsPath + excludedFiles
+                ]);
             }
         });
 });
 
-$.gulp.task('prod', $.gulp.series(changeNodeEnv, 'webpack'));
+$.gulp.task('dev',
+    $.gulp.parallel(
+        'styles',
+        'lib-styles',
+        'webpack',
+        function() {
+            $.gulp.watch(
+                [
+                    gulpVars.stylusPath + '**/*.styl'
+                ],
+                $.gulp.series('styles')
+            );
+        }
+    )
+);
+
+$.gulp.task('deloldhashfiles', (done) => {
+    $.jsonfile.readFile(gulpVars.publicPath + 'css.json', function(err, obj) {
+        let prevFile;
+
+        if (obj) {
+            prevFile = obj['app.css'];
+        } else {
+            console.log(err);
+        }
+
+        $.del(gulpVars.publicCssPath + prevFile);
+    });
+
+    $.jsonfile.readFile(gulpVars.publicPath + 'webpack.json', function(err, obj) {
+        let prevFile;
+
+        if (obj) {
+            prevFile = obj['app.js'];
+        } else {
+            console.log(err);
+        }
+
+        $.del(gulpVars.publicJsPath + prevFile);
+    });
+
+    done();
+});
+
+$.gulp.task('prod', $.gulp.series(changeNodeEnv, 'webpack', 'styles'));
 
 function changeNodeEnv(done) {
     isDevelopment = false;

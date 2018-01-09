@@ -7,7 +7,7 @@ let gulpVars = require('./gulp.vars');
 
 module.exports = {
     output: {
-        publicPath: gulpVars.publicJsPath,
+        publicPath: gulpVars.publicPath,
         filename: isDevelopment ? '[name].js' : '[name]-[chunkhash:10].js'
     },
     watch:   isDevelopment,

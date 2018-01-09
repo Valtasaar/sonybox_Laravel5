@@ -13,9 +13,15 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  @if (env('APP_ENV') == 'local')
+    <link href="{{ asset('css/lib-styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  @else
+    <link href="{{ va('css/app.css') }}" rel="stylesheet">
+  @endif
 </head>
 <body>
+
 <div id="app">
   <header class="header">
     <div class="container">
@@ -45,6 +51,10 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+@if (env('APP_ENV') == 'local')
+  <script src="{{ asset('js/app.js') }}"></script>
+@else
+  <script src="{{ va('js/app.js') }}"></script>
+@endif
 </body>
 </html>
