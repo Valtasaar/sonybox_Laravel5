@@ -6,7 +6,7 @@ let webpackOptions = require('./gulp.webpack.config');
 const $ = gulpVars.plugins;
 
 $.gulp.task('styles', () => {
-    let src = (!isDevelopment) ? [gulpVars.libsPath + 'lib-styles.styl', gulpVars.stylusPath + 'app.styl'] : gulpVars.stylusPath + 'app.styl';
+    let src = (!isDevelopment) ? [gulpVars.cssPath + 'lib-styles.styl', gulpVars.stylusPath + 'app.styl'] : gulpVars.stylusPath + 'app.styl';
 
     return $.gulp.src(src)
         .pipe($.plumber({
@@ -42,10 +42,18 @@ $.gulp.task('styles', () => {
                 $.gulp.dest(gulpVars.publicPath)
             ))
         )
+        .pipe($.notify("Styles Done!"));
 });
 
 $.gulp.task('lib-styles', () => {
-    return $.gulp.src(gulpVars.libsPath + 'lib-styles.styl')
+    return $.gulp.src([
+            gulpVars.cssPath + '/font-awesome.css',
+            gulpVars.nm + '/bootstrap/dist/css/bootstrap.css',
+            gulpVars.nm + '/bootstrap-select/dist/css/bootstrap-select.css',
+            gulpVars.nm + '/magnific-popup/dist/magnific-popup.css',
+            gulpVars.nm + '/jquery.mmenu/dist/jquery.mmenu.all.css',
+            gulpVars.nm + '/hamburgers/dist/hamburgers.css',
+        ])
         .pipe($.plumber({
             errorHandler: $.notify.onError(err => ({
                 title:   'Styles',
@@ -53,9 +61,7 @@ $.gulp.task('lib-styles', () => {
             }))
         }))
         .pipe($.gulpIf(isDevelopment, $.sourcemaps.init()))
-        .pipe($.stylus({
-            'include css': true
-        }))
+        .pipe($.concat('lib-styles.css'))
         .pipe($.gulpIf(isDevelopment, $.sourcemaps.write()))
         .pipe($.gulp.dest(gulpVars.publicCssPath))
 });
@@ -123,7 +129,8 @@ $.gulp.task('webpack', (callback) => {
                     '!' + gulpVars.publicJsPath + excludedFiles
                 ]);
             }
-        });
+        })
+        .pipe($.notify("JS Done!"));
 });
 
 $.gulp.task('dev',

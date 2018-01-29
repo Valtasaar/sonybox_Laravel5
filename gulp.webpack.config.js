@@ -1,4 +1,3 @@
-//const path = require('path');
 const webpackStream = require('webpack-stream');
 const webpack = webpackStream.webpack;
 let isDevelopment = true;
@@ -20,7 +19,7 @@ module.exports = {
                 loader: "babel-loader",
                 options: {
                     presets: [
-                        ["es2015"]
+                        ["babel-preset-env"]
                     ]
                 }
             },

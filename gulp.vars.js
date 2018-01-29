@@ -10,7 +10,8 @@ module.exports = {
     assetsPath: assetsPath,
     stylusPath: assetsPath + 'stylus/',
     jsPath: assetsPath + 'js/',
-    libsPath: assetsPath + 'libs/',
+    cssPath: assetsPath + 'css/',
+    nm: './node_modules',
 
     plugins: {
         path: require('path'),
@@ -30,7 +31,6 @@ module.exports = {
         webpack: webpackStream.webpack,
         named: require('vinyl-named'),
         UglifyJsPlugin: require('uglifyjs-webpack-plugin'),
-        ConcatPlugin : require('webpack-concat-plugin'),
         concat: require('gulp-concat'),
         AssetsPlugin: require('assets-webpack-plugin'),
         del: require('del'),

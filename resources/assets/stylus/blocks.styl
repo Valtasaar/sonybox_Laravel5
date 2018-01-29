@@ -4,63 +4,50 @@ ul
 pre
 	width 100%
 
-html,
-body
-	height 100%
+html
+	min-height: 100%
+	position: relative
+
+#app
+	padding-bottom: footerHeight
 
 .site-content
-	min-height 100%
-	position relative
+	padding-top: headerHeight
 
 a
 	color inherit
 
 .header
-	height 90px
+	height headerHeight
 	background-color black
 	position fixed
 	width 100%
-	z-index 1100
-
-.header-fix
-	height 90px
-	width 100%
+	z-index 1000
 
 .logo
-	height 90px
+	height headerHeight
 	color white
-	padding-left 0
 
 .footer
-	height 344px
+	height: footerHeight
 	background-color #1f2024
-	padding-top 70px
+	bottom: 0;
+	width: 100%;
+	position: absolute;
 	a
 		font 17px fsl
 		color #7b7b7b
 		transition tr
 
 .search
-	text-transform uppercase
-	margin-top 50px
-	margin-bottom 50px
 	text-align center
 	background-color white
 	padding 15px
 	padding-bottom 0
-	form
-		text-align left
-		display inline-block
-		width 70%
 
 .ser-content
 .ser-content-2
-	margin-top 50px
-	padding 30px 40px
 	background-color white
-
-.ser-content-2
-	margin 0
 
 .ser-content
 	position relative
@@ -144,9 +131,6 @@ a
 .sorting-fix
 	height 80px
 
-.add-company .service-reply-form__submit-btn
-	text-align right
-
 .add-company-content
 	position relative
 
@@ -155,4 +139,3 @@ a
 
 .main-text
 	padding 15px
-

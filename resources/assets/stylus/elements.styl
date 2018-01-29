@@ -1,8 +1,7 @@
 .logo__name
   font 54px hb
-  line-height 30px
+  line-height 50px
   text-transform uppercase
-  padding-top 30px
 
 .logo__text
   font 14px sr
@@ -18,13 +17,15 @@
       margin 0 10px
       transition tr
     li a
+      color: #fff
+      display: inline-block
+      height: headerHeight
+      line-height: headerHeight
       transition tr
-    li:hover
+    li a:hover
       border-bottom 5px solid sred
       transition tr
-    li:hover a
       color sred
-      transition tr
 
 .header__menu_links
   color white
@@ -85,11 +86,6 @@ a.footer__site
   display inline-block
   width 100%
 
-.card__card-title-text
-  position relative
-  top -5px
-  padding-right 80px
-
 .card__card-title-icon
   display inline-block
   width 28px
@@ -103,6 +99,7 @@ a.footer__site
   padding-left 25px
   letter-spacing 1pt
   transition tr
+  text-transform: uppercase
 
 .search__label:hover
   color black
@@ -128,11 +125,11 @@ a.footer__site
 .card__card-title
   font 14px fsb
   color black
+  text-transform: none
 
 .search__block
   display inline-block
   position relative
-  margin-bottom 30px
   width 100%
 
 .search_main .search__courier,
@@ -183,6 +180,10 @@ a.footer__site
   z-index 10
   background-color white
 
+.search__technique
+  max-height: 200px
+  overflow: auto
+
 .s__item
   position relative
   margin-bottom 40px
@@ -191,7 +192,6 @@ a.footer__site
 .s__item__name__title
   font 18px fsm
   color sred
-  padding-right 10px
 
 .s__item__name__type
   font 11px fsl
@@ -211,11 +211,11 @@ a.footer__site
   width 200px
   padding-left 20px
   padding-right 10px
-  background url("../img/icons/sl-icons.png") no-repeat 0 -37px
+  background url("../img/icons/sl-icons.png") no-repeat 0 -42px
   line-height 20px
 
 .s__item__address_wt
-  background url("../img/icons/sl-icons.png") no-repeat -208px -37px
+  background url("../img/icons/sl-icons.png") no-repeat -208px -42px
   padding-left 20px
 
 .s__item__address
@@ -281,6 +281,10 @@ a.footer__site
     border-color black
 
 .s__item__img
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
   position absolute
   top 0
   bottom 0
@@ -308,8 +312,7 @@ a.footer__site
 .s__item__title
   font 16px fsl
   text-transform uppercase
-  margin-top 40px
-  margin-bottom 20px
+  margin: 0
 
 .ser__logo
   width 140px
@@ -342,19 +345,14 @@ a.footer__site
 .ser_rew
   text-align right
 
-.ser-content__info
 .ser-content__contacts
-  border bgrey
-  padding 30px 30px
-  width 49%
-  margin-top 20px
-
-.ser-content__contacts
-  float right
   position absolute
   top 0
   bottom 0
   right 0
+  margin-bottom: 20px
+  .panel
+    height: 100%
 
 .ser-content__descr
   font 16px fsl
@@ -389,19 +387,6 @@ a.footer__site
 
 .ser-content_tel
   margin 20px 0
-
-.s__tels-btn
-  height auto
-  min-height 65px
-  width 265px
-  font-size 19px
-  margin-left 15px
-  margin-bottom 10px
-  padding 20px 0
-  background-color  sred
-  color white
-  text-align center
-  cursor pointer
 
 .s__item__tels
   display none
@@ -631,18 +616,12 @@ a.s__item__show-tel
   padding 0
   font 18px fsm
 
-.s__resp__block
-  text-align right
-  padding 0
-  color white
-
 .service-reply-form__fields
   .service-reply-form__field
     margin-bottom 19px
     border bgrey
   input
     width 351px
-    float right
   input[type="text"].service-reply-form__field:focus
     border bgrey
     border-bottom bgrey
@@ -652,10 +631,8 @@ a.s__item__show-tel
   textarea
     width 355px
     min-height 105px
-    float right
   label
-    width 200px
-    float left
+    text-align: left
     font 16px fsl
     color tgrey
     text-transform uppercase
@@ -720,28 +697,6 @@ a.s__item__show-tel
  text-align right
  padding 0
 
-.service-reply-form__btns
-  text-align right
-  position absolute
-  right 0
-  bottom 22px
-
-.service-reply-form__btn
-  width 198px
-  height 52px
-  font 18px fsm
-  border none
-
-.service-reply-form__cancel-btn button
-  background-color #ebe8e8
-  color tgrey
-  margin-bottom 8px
-
-.service-reply-form__submit-btn input
-  background-color sred
-  color white
-  cursor pointer
-
 .rep-radios__item:last-child label
   padding-right 0
 
@@ -761,28 +716,8 @@ a.s__item__show-tel
 .ser_sing .js-hide-comm-text
   display none
 
-.more-comm-btn
-  width 225px
-  height 48px
-  color white
-  border none
-  background-color sred
-  float right
-  cursor pointer
-  margin-bottom 70px
-
-.resp-count-btn
-  border none
-  background transparent
-  color sred
-  text-decoration underline
-  cursor pointer
-
 .ser__rews__item
   margin-bottom 20px
-
-.ser-content__header
-  padding 0 15px
 
 .search-items-res
   background-color white
@@ -817,3 +752,12 @@ a.s__item__show-tel
 .add-company__form-error
   color sred
   font 18px fsm
+
+.site-btn
+  width: 100%
+  font 18px fsm
+  border none
+  background-color sred
+  color white
+  cursor pointer
+  transition tr

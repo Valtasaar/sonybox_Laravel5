@@ -10,12 +10,14 @@ window._ = require('lodash');
 try {
     window.$ = window.jQuery = require('jquery');
 
-    //require('bootstrap-sass');
-
     /**
      * Libraries and plugins
      * */
-    require('../libs/lib-scripts.js');
+    require('tether');
+    require('bootstrap');
+    require('bootstrap-select');
+    require('magnific-popup');
+    require('jquery.mmenu');
 } catch (e) {}
 
 /**

@@ -1,7 +1,5 @@
-@extends('pages.service')
 
-@section('service-content')
-<div class="container">
+{{--<div class="container">
   <div class="ser-content clearfix">
     <div class="row ser-content__header">
       <div class="ser-content__title s__item__name__title col-md-6">
@@ -101,8 +99,10 @@
       </div>
     </div>
   </div>
-</div>
-@endsection
+</div>--}}
+
+
+
 
 
 
